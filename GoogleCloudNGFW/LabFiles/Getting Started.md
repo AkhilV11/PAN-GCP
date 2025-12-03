@@ -14,3 +14,44 @@ Cloud NGFW Enterprise is a fully distributed firewall solution that delivers adv
 
 In this architecture, a VPC network hosts two virtual machines: **client-vm** and **web-vm**. The **client-vm** is used to simulate threats targeting both north/south internet traffic and east/west traffic directed at the web application running on the web-vm.
 To mitigate these threats, a Cloud NGFW endpoint is deployed and linked to the network. Firewall policies applied to this endpoint define how traffic is inspected and filtered by Cloud NGFW, ensuring protection against malicious activity.
+
+![](./Images/lab-arch.png)
+
+## Prepare for Deployment
+
+Enable the required APIs, retrieve the deployment files, and configure the environment variables.
+
+> [!IMPORTANT]
+> This tutorial assumes you are using Cloud Shell to provision all resources.
+
+1. Open [Google Cloud Shell](https://shell.cloud.google.com) <img src="https://storage.googleapis.com/cloud-training/images/devshell.png" alt="cloudshell.png" /> and enable the required APIs.
+
+    ```
+    gcloud services enable compute.googleapis.com
+    gcloud services enable networksecurity.googleapis.com
+    gcloud services enable firewallinsights.googleapis.com
+    ```
+
+2. Set environment variables for your deployment project and billing project.
+
+    <pre>
+    export PROJECT_ID=<b><i>YOUR_PROJECT_ID</i></b>
+    export BILLING_ID=<b><i>YOUR_BILLING_PROJECT_ID</i></b></pre>
+
+3. Set environment variables for your organization ID, deployment region, zone, and naming prefix.
+
+    ```
+    export ORG_ID=$(gcloud projects describe $PROJECT_ID --format=json | jq -r '.parent.id')
+    export REGION=us-central1
+    export ZONE=us-central1-a
+    export PREFIX=panw
+    ```
+
+
+4. Select a deployment option.  Both options deploy identical environments. 
+    * **[Option 1. Deploy using Terraform](#deploy-using-terraform)**
+        - All of the cloud resources required for the tutorial are deployed using a single Terraform plan.
+    * **[Option 2. Deploy using gcloud](#deploy-using-gcloud)**
+        - Each cloud resource is deployed individually using `gcloud`.  
+
+<br>
