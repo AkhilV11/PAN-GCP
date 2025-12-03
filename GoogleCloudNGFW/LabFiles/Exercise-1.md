@@ -1,5 +1,7 @@
 # Excercise 1: Deploying the Google Cloud NGFW Enterprise solution
 
+You can choose to deploy the soltuion through **gcloud** or **Terraform**, both the options provide identical environments.
+    
 ## Deploy using gcloud
 
 1. Create a VPC network, Cloud NAT, and the `client-vm` & `web-vm` virtual machines.
