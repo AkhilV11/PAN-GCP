@@ -1,4 +1,4 @@
-# Excercise 1: Deploying the solution
+# Excercise 1: Deploying the Google Cloud NGFW Enterprise solution
 
 ## Deploy using gcloud
 
