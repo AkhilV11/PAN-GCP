@@ -46,12 +46,4 @@ Enable the required APIs, retrieve the deployment files, and configure the envir
     export ZONE=us-central1-a
     export PREFIX=panw
     ```
-
-
-4. Select a deployment option.  Both options deploy identical environments. 
-    * **[Option 1. Deploy using Terraform](#deploy-using-terraform)**
-        - All of the cloud resources required for the tutorial are deployed using a single Terraform plan.
-    * **[Option 2. Deploy using gcloud](#deploy-using-gcloud)**
-        - Each cloud resource is deployed individually using `gcloud`.  
-
 <br>
